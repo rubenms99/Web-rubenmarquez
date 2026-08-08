@@ -249,17 +249,24 @@
 
   /* TESTIMONIOS */
   .testimonials-grid{
-    display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
+    display:grid;grid-template-columns:repeat(2,1fr);gap:28px;
   }
   .testimonial-card{
     background:var(--panel-2);border:1px solid var(--line);border-radius:2px;
-    padding:32px 28px;display:flex;flex-direction:column;gap:18px;
+    padding:40px 36px;display:flex;flex-direction:column;gap:16px;position:relative;
   }
-  .testimonial-card .stars{color:var(--teal);font-size:14px;letter-spacing:2px;}
-  .testimonial-card .quote{color:var(--ink-muted);font-size:15px;line-height:1.7;flex:1;}
-  .testimonial-card .author{border-top:1px solid var(--line);padding-top:14px;}
-  .testimonial-card .author .name{display:block;font-family:var(--serif);font-size:17px;color:var(--ink);}
-  .testimonial-card .author .role{display:block;font-size:12px;color:var(--ink-muted);margin-top:2px;letter-spacing:0.04em;}
+  .testimonial-card .quote-mark{
+    font-family:var(--serif);color:var(--bronze);font-size:52px;line-height:1;
+    opacity:0.85;
+  }
+  .testimonial-card .stars{color:var(--teal);font-size:13px;letter-spacing:3px;}
+  .testimonial-card .quote{
+    font-family:var(--serif);font-style:italic;font-weight:500;
+    font-size:18px;line-height:1.6;color:var(--ink);flex:1;
+  }
+  .testimonial-card .author{border-top:1px solid var(--line);padding-top:16px;font-family:var(--sans);}
+  .testimonial-card .author .name{display:block;font-size:14px;font-weight:700;letter-spacing:0.03em;color:var(--ink);}
+  .testimonial-card .author .role{display:block;font-size:12px;color:var(--ink-muted);margin-top:3px;letter-spacing:0.04em;}
   @media (max-width:860px){
     .testimonials-grid{grid-template-columns:1fr;}
   }
@@ -426,6 +433,53 @@
   </div>
 </section>
 
+<section id="testimonios">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow">Testimonios</span>
+      <h2>La experiencia, en palabras de quienes la han vivido.</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal">
+        <div class="quote-mark" aria-hidden="true">&rdquo;</div>
+        <div class="stars">★★★★★</div>
+        <p class="quote">“Quiero agradecer a Rubén por su gran profesionalismo y excelente trabajo. Me realizó un quiromasaje con masaje deportivo y técnicas enfocadas en la fascia que me ayudaron muchísimo con mi lumbalgia y toda la zona lumbar cargada. Fue puntual, incluso llegó antes de la hora, muy limpio, educado y atento en todo momento. Me encantó el servicio y lo recomiendo 100%.”</p>
+        <div class="author">
+          <span class="name">Natalia G.</span>
+          <span class="role">Quiromasaje deportivo</span>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="quote-mark" aria-hidden="true">&rdquo;</div>
+        <div class="stars">★★★★★</div>
+        <p class="quote">“El masaje con Rubén ha sido, con diferencia, de los mejores que me han dado. Tiene unas manos mágicas y una técnica impecable que elimina el estrés y la tensión desde la primera sesión. Además, es un profesional súper atento, educado, cercano y agradable. Recomendado al 100%.”</p>
+        <div class="author">
+          <span class="name">Juanjo M.</span>
+          <span class="role">Cliente</span>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="quote-mark" aria-hidden="true">&rdquo;</div>
+        <div class="stars">★★★★★</div>
+        <p class="quote">“Quiero recomendarlo de corazón porque la experiencia fue increíble. Desde el primer momento me hizo sentir súper cómoda y en confianza. Tiene unas manos increíbles y una sensibilidad especial para encontrar exactamente dónde necesitas aliviar tensión o dolor. Salí relajada, mucho mejor físicamente y también mentalmente.”</p>
+        <div class="author">
+          <span class="name">Amandda R.</span>
+          <span class="role">Clienta</span>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="quote-mark" aria-hidden="true">&rdquo;</div>
+        <div class="stars">★★★★★</div>
+        <p class="quote">“Una felicidad de haberte encontrado, no sé cómo explicarte el alivio que siento Rubén, muchísimas gracias de verdad. Estuve toda la semana súper angustiada con esta molestia, no sabía ya dónde ir.”</p>
+        <div class="author">
+          <span class="name">Nidia</span>
+          <span class="role">Clienta habitual · Tratamiento de bruxismo</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="cta" id="contacto">
   <div class="wrap reveal">
     <span class="eyebrow">Reserva tu sesión</span>
@@ -451,41 +505,6 @@
       <div class="contact-item">
         <div class="eyebrow">Instagram</div>
         <a href="https://instagram.com/by.rubenmarquez" target="_blank">@by.rubenmarquez</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="testimonios">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <span class="eyebrow">Testimonios</span>
-      <h2>La experiencia, en palabras de quienes la han vivido.</h2>
-    </div>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"Rubén tiene una técnica impecable y una capacidad enorme para adaptarse a lo que necesita tu cuerpo. Después de cada sesión de masaje deportivo noto una recuperación muchísimo más rápida."</p>
-        <div class="author">
-          <span class="name">Marta G.</span>
-          <span class="role">Masaje deportivo</span>
-        </div>
-      </div>
-      <div class="testimonial-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"El Ritual Maitri es una pasada. Desde que entra por la puerta hasta que se va, todo está pensado al detalle: material esterilizado, aceites de calidad y una profesionalidad que se nota."</p>
-        <div class="author">
-          <span class="name">Alejandro R.</span>
-          <span class="role">Ritual Maitri</span>
-        </div>
-      </div>
-      <div class="testimonial-card reveal">
-        <div class="stars">★★★★★</div>
-        <p class="quote">"Llevaba tiempo buscando a alguien que combinara rigor técnico y cercanía a domicilio. Rubén cumple con creces: cada sesión es un momento de desconexión real."</p>
-        <div class="author">
-          <span class="name">Laura M.</span>
-          <span class="role">Ritual Renacer</span>
-        </div>
       </div>
     </div>
   </div>
