@@ -112,6 +112,27 @@
 
   body.nav-open{overflow:hidden;}
 
+  /* LIGHTBOX (imagen de servicio a pantalla completa) */
+  .lightbox{
+    position:fixed;inset:0;z-index:230;
+    display:flex;align-items:center;justify-content:center;padding:28px;
+    background:rgba(10,13,12,0.96);backdrop-filter:blur(6px);
+    opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity .3s ease, visibility .3s ease;
+  }
+  .lightbox.open{opacity:1;visibility:visible;pointer-events:auto;}
+  .lightbox-img{
+    max-width:92vw;max-height:85vh;object-fit:contain;
+    border-radius:2px;box-shadow:0 20px 60px rgba(0,0,0,0.5);
+  }
+  .lightbox-close{
+    position:absolute;top:20px;right:24px;
+    background:none;border:none;color:var(--ink);font-size:26px;
+    cursor:pointer;padding:8px;line-height:1;
+  }
+  .lightbox-close:hover{color:var(--teal);}
+  body.lightbox-open{overflow:hidden;}
+
   @media (max-width:760px){
     nav{display:none;}
     .nav-toggle{display:inline-flex;align-items:center;justify-content:center;}
@@ -282,7 +303,7 @@
   }
   .service:last-child{border-bottom:none;}
   .service:nth-child(even) .service-photo{order:2;}
-  .service-photo img{border-radius:2px;}
+  .service-photo img{border-radius:2px;cursor:pointer;}
   .service-name{font-size:11px;color:var(--teal);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:10px;}
   .service-note{font-size:12px;color:var(--ink-muted);font-style:italic;margin:-4px 0 14px;}
   .service h3{font-size:clamp(26px,3vw,36px);margin-bottom:16px;}
@@ -369,6 +390,11 @@
     <a href="#servicios">Servicios</a>
     <a href="#contacto">Reservar</a>
   </nav>
+</div>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar imagen">✕</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="">
 </div>
 
 <section class="hero">
@@ -585,6 +611,32 @@
     closeBtn.addEventListener('click', closeNav);
     mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeNav));
     window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeNav(); });
+  })();
+
+  /* --- LIGHTBOX (imagen de servicio a pantalla completa) --- */
+  (function(){
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeBtn = document.getElementById('lightboxClose');
+    const photos = document.querySelectorAll('.service-photo img');
+    if(!lightbox || !lightboxImg || !photos.length) return;
+
+    function openLightbox(img){
+      lightboxImg.src = img.src;
+      lightboxImg.alt = img.alt;
+      lightbox.classList.add('open');
+      document.body.classList.add('lightbox-open');
+    }
+    function closeLightbox(){
+      lightbox.classList.remove('open');
+      document.body.classList.remove('lightbox-open');
+      lightboxImg.src = '';
+    }
+
+    photos.forEach(img=>img.addEventListener('click', ()=>openLightbox(img)));
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e)=>{ if(e.target === lightbox) closeLightbox(); });
+    window.addEventListener('keydown', (e)=>{ if(e.key === 'Escape') closeLightbox(); });
   })();
 
   /* --- SCROLL REVEAL --- */
